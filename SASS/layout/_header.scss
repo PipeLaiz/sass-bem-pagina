@@ -1,0 +1,73 @@
+@use '../abstracts/variables';
+
+.header {
+  background: linear-gradient(135deg, variables.$primary-color 0%, variables.$secondary-color 100%);
+  color: variables.$white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 3px, transparent 3px),
+      radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 150px 150px;
+    pointer-events: none;
+  }
+}
+
+.header__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.header__title {
+  margin: auto  ;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+.header__subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes float-animation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
